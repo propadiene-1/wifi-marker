@@ -17,8 +17,14 @@ var circle = L.circle([47.61061509828912, -122.20266934857376], { //showing rend
     radius: 2500 //2500m, about 1.55 miles
 }).addTo(map);
 
+var umaru = L.icon({
+    iconUrl: 'markers/umaru.png',
+    iconSize: [50, 50],
+    popupAnchor: [0, -20]
+});
+
 function onMapClick(e) {
-    const marker = L.marker(e.latlng);
+    const marker = L.marker(e.latlng, {icon: umaru});
     const popup = L.popup({ closeOnClick: false })
         .setLatLng(e.latlng)
         .setContent(`
