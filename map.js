@@ -18,7 +18,7 @@ var circle = L.circle([47.61061509828912, -122.20266934857376], { //showing rend
 }).addTo(map);
 
 function onMapClick(e) {
-    const marker = L.marker(e.latlng).addTo(map);
+    const marker = L.marker(e.latlng);
     const popup = L.popup({ closeOnClick: false })
         .setLatLng(e.latlng)
         .setContent(`
@@ -35,6 +35,7 @@ function onMapClick(e) {
 
         button.addEventListener("click", () => { //bind to popup & close on save
             console.log("clicked save", textarea.value);
+            marker.addTo(map);
             marker.bindPopup(textarea.value).openPopup();
             map.closePopup(popup);
         });
