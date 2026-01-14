@@ -23,7 +23,6 @@ function onMapClick(e) {
         .setLatLng(e.latlng)
         .setContent(`
             <div>
-            <p>test</p>
             <textarea rows='4'></textarea>
             <button>Save</button>
             </div>
