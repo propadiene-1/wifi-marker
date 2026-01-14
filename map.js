@@ -10,21 +10,27 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
 var marker = L.marker([47.61061509828912, -122.20266934857376]).addTo(map);
 marker.bindPopup("<b>Nana's Green Tea</b><br><br><b>Wifi Network:</b> NanaGreenTea<br><b>Password:</b> greenteaneko<br><br><b>Closes at 9:00pm PST</b>").openPopup();
 
-var circle = L.circle([47.61061509828912, -122.20266934857376], { //showing render radius?
+/*var circle = L.circle([47.61061509828912, -122.20266934857376], { //showing render radius?
     color: '#6fd5de',
     fillColor: '#b3f6fc',
     fillOpacity: 0.2,
     radius: 2500 //2500m, about 1.55 miles
-}).addTo(map);
+}).addTo(map);*/
 
 var umaru = L.icon({
     iconUrl: 'markers/umaru.png',
-    iconSize: [50, 50],
-    popupAnchor: [0, -20]
+    iconSize: [30, 33],
+    popupAnchor: [0, -10]
+});
+
+var default_marker = L.icon({
+    iconURL: 'markers/default-marker.png',
+    iconSize: [30, 33],
+    popupAnchor: [0, -10]
 });
 
 function onMapClick(e) {
-    const marker = L.marker(e.latlng, {icon: umaru});
+    const marker = L.marker(e.latlng);
     const popup = L.popup({ closeOnClick: false })
         .setLatLng(e.latlng)
         .setContent(`
@@ -40,9 +46,11 @@ function onMapClick(e) {
         const button = popup.getElement().querySelector("button");
 
         button.addEventListener("click", () => { //bind to popup & close on save
-            console.log("clicked save", textarea.value);
             marker.addTo(map);
-            marker.bindPopup(textarea.value).openPopup();
+            
+            lines = textarea.value.split("\n"); //preserve multi-line
+            text = lines.join('<br>');
+            marker.bindPopup(text).openPopup();
             map.closePopup(popup);
         });
     }, 0);
