@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+
+     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+
+     <style>
+        #map { 
+            height: 700px; 
+        }
+     </style>
+</head>
+
+<div id="map"></div>
+
+<script>
+    var map = L.map('map').setView([47.61061509828912, -122.20266934857376], 13);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        maxZoom: 20,
+        minZoom: 2,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    var marker = L.marker([47.61061509828912, -122.20266934857376]).addTo(map);
+    marker.bindPopup("<b>Nana's Green Tea</b><br><br><b>Wifi Network:</b> NanaGreenTea<br><b>Password:</b> greenteaneko<br><br><b>Closes at 9:00pm PST</b>").openPopup();
+    var circle = L.circle([47.61061509828912, -122.20266934857376], { //showing render radius?
+        color: '#6fd5de',
+        fillColor: '#b3f6fc',
+        fillOpacity: 0.2,
+        radius: 2500 //2500m, about 1.55 miles
+    }).addTo(map);
+
+    var popup = L.popup();
+
+    function onMapClick(e) {
+        L.marker(e.latlng).addTo(map);
+        /*popup
+            .setLatLng(e.latlng)
+            .setContent(e.latlng.toString())
+            .openOn(map);*/
+    }
+
+    map.on('click', onMapClick);
+</script>
+
+</html>
