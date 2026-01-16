@@ -1,20 +1,20 @@
 # wifi-marker
-mark free wifi on maps
+mark locations with free wifi on a map
 
 ## Quick Start
 
 1. Clone the repo
-```
-git clone https://github.com/propadiene-1/wifi-marker.git
-```
+    ```
+    git clone https://github.com/propadiene-1/wifi-marker.git
+    ```
 2. Run on a local web server
-```
-python3 -m http.server 8000
-```
+    ```
+    python3 -m http.server 8000
+    ```
 3. Open localhost in browser
-```
-http://localhost:8000
-```
+    ```
+    http://localhost:8000
+    ```
 ## Contents
 + ```README.md``` project description
 + ```index.html``` main webpage
