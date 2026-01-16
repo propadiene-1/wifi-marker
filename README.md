@@ -2,8 +2,6 @@
 mark free wifi on maps
 
 ## contents
-```
-- README.md
-- index.html
-- map.js
-```
++ ```README.md```
++ ```index.html```
++ ```map.js```

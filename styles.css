@@ -1,0 +1,45 @@
+#map { height: 100vh; }
+
+#search-icon{
+    position: absolute;
+}
+#search-wrap{
+    width: 340px;
+    position: absolute;
+    top: 20px;
+    left: 70px;
+    z-index: 1000;
+}
+
+#search-content{
+    padding: 0px 20px;
+    height: 44px;
+    width: 400px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    background: white;
+}
+
+#results{
+  margin-top: 6px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: white;
+  overflow: hidden;
+  display: none;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+#results button{
+  width: 100%;
+  padding: 10px 12px;
+  border: 0;
+  background: white;
+  text-align: left;
+  cursor: pointer;
+}
+
+#results button:hover{
+  background: #f3f3f3;
+}
