@@ -49,6 +49,7 @@ export function initMap(){
   }
 
   map.on('click', onMapClick);
+  return map;
 }
 
 //demo marker i guess
