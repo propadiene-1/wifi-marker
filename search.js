@@ -27,10 +27,6 @@ export function initSearch(){
     const url = `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(query)}&format=json&apiKey=${GEOAPIFY_KEY}`;
     const searchResponse = await fetch (url); //returns a Response object (json, dictionary keyed with results : [], query : {})
     const data = await searchResponse.json(); //convert response object to json
-    console.log("Error:", data.error);
-    console.log("Message:", data.message);
-    console.log("Status code:", data.statusCode);
-    console.log("Key in config:", GEOAPIFY_KEY.substring(0, 10) + "...");
     return data['results'];
     //TODO: place a marker on the top result (data['results'][0]['lon'], data['results'][0]['lat'])
     //const lon = data['results']['lon'];
@@ -66,18 +62,14 @@ export function initSearch(){
   document.addEventListener("keydown", (e) => { 
     const ctrlPressed = e.ctrlKey || e.metaKey; //bind to cmd/ctrl-f
     if (ctrlPressed && e.key === "f") {
-      console.log("cmd f pressed");
       e.preventDefault();
       if (input){
-        console.log("input found:", input);
         input.focus();
         input.select();
-      } else{
-        console.log('input not found');
       }
     }
   });
-
+}
   /*
   //autocomplete search
   async function autocomplete(q) {
@@ -108,8 +100,6 @@ export function initSearch(){
     displayResults(results);
   });
   */
-
-}
 
 
 // GEOCODER FUNCTIONALITY //
