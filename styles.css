@@ -8,6 +8,7 @@ body {
   padding: 0;
 }
 
+/*SEARCH BAR*/
 #search-icon{
     position: absolute;
 }
@@ -18,7 +19,6 @@ body {
     left: 70px;
     z-index: 1000;
 }
-
 #search-content{
     padding: 0px 20px;
     height: 44px;
@@ -28,18 +28,20 @@ body {
     background: white;
 }
 
-#results{
-  margin-top: 6px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  background: white;
-  overflow: hidden;
-  display: none;
-  max-height: 260px;
-  overflow-y: auto;
+/*SEARCH RESULTS*/
+.result-item{
+  padding: 5px;
+  flex: 1; /*make parent box expand*/
 }
-
-#results button{
+#top-result{
+  color: black; /*no special formatting needed*/
+}
+#results-container{
+  margin-top: 6px;
+  display: flex; /*expand with # of results*/
+  flex-direction: column;
+}
+/*#results-container button{
   width: 100%;
   padding: 10px 12px;
   border: 0;
@@ -47,7 +49,6 @@ body {
   text-align: left;
   cursor: pointer;
 }
-
 #results button:hover{
   background: #f3f3f3;
-}
+}*/
