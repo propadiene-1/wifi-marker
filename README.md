@@ -1,5 +1,8 @@
 # wifi-marker
-mark locations with free wifi on a map
+
+Quick and easy map designed to mark locations that have free WiFi.
+
+Using [Leaflet](https://leafletjs.com/) for map functions, [OpenStreetMap](https://www.openstreetmap.org/) tiles, and [Geoapify](https://www.geoapify.com/) for geocoding.
 
 ## Quick Start (minimal functions)
 
@@ -27,7 +30,7 @@ With this you can search for locations.
     ```
     export const GEOAPIFY_KEY = [YOUR API KEY HERE]
     ```
-3. Done! The search functions should automatically use your API key.
+3. Done! The searches will automatically use your API key.
 
 ## Contents
 + ```README.md``` project description
