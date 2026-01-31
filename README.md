@@ -1,6 +1,6 @@
 # wifi-marker
 
-Quick and easy map designed to mark locations that have free WiFi.
+Quick and easy website to mark locations that have free WiFi.
 
 Using [Leaflet](https://leafletjs.com/) for map functions, [OpenStreetMap](https://www.openstreetmap.org/) tiles, and [Geoapify](https://www.geoapify.com/) for geocoding.
 
