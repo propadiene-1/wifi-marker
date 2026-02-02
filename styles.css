@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
+
+.google-sans {
+  font-family: "Google Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings:
+    "GRAD" 0;
+}
+
 #map { 
   height: 100vh; 
   width: 100%;
@@ -6,6 +17,7 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: "Google Sans";
 }
 
 /*SEARCH BAR*/
@@ -26,20 +38,33 @@ body {
     border: 1px solid #ddd;
     border-radius: 25px;
     background: white;
+    box-sizing: border-box;
+    font-family: "Google Sans";
+    font-size: 16px;
 }
 
 /*SEARCH RESULTS*/
 .result-item{
-  padding: 5px;
   flex: 1; /*make parent box expand*/
+  font-family: "Google Sans", sans-serif;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  border-radius: 25px;
+}
+.result-item:hover {
+  background-color: #f4f4f4;
 }
 #top-result{
   color: black; /*no special formatting needed*/
 }
 #results-container{
-  margin-top: 6px;
   display: flex; /*expand with # of results*/
   flex-direction: column;
+  width: 400px;
+  border: 1px solid #ddd;
+  border-radius: 25px 25px;
+  background: white;
+  box-sizing: border-box;
 }
 /*#results-container button{
   width: 100%;

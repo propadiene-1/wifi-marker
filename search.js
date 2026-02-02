@@ -28,9 +28,6 @@ export function initSearch(){
     const searchResponse = await fetch (url); //returns a Response object (json, dictionary keyed with results : [], query : {})
     const data = await searchResponse.json(); //convert response object to json
     return data['results'];
-    //TODO: place a marker on the top result (data['results'][0]['lon'], data['results'][0]['lat'])
-    //const lon = data['results']['lon'];
-    //const lat = data['results']['lat'];
   }
 
   //SEARCH ON ENTER KEY
@@ -43,15 +40,28 @@ export function initSearch(){
   });
 
   //ZOOM MAP TO LOCATION ON CLICK
-  const searchResult = document.querySelector('.result-item');
-  if (searchResult){
-    searchResult.addEventListener("click", (e) => { 
-      //PAN MAP TO LOCATION
-      map.panTo(topResult.dataset.lat, topResult.dataset.lon);
-      //place marker on attached coordinates
-      placeMarker([topResult.dataset.lat, topResult.dataset.lon])
-    });
-  }
+  resultsBox.addEventListener("click", (e) => {
+    console.log("results box clicked!");
+    console.log("e.target:", e.target);
+    const targetResult = e.target.closest('.result-item');
+    console.log("targetResult:", targetResult);
+    if (targetResult){
+      const lat = parseFloat(targetResult.dataset.lat);
+      const lon = parseFloat(targetResult.dataset.lon);
+      console.log("lat:", lat);
+      console.log("lon:", lon);
+      if (!isNaN(lat) && !isNaN(lon)){ //PAN MAP TO LOCATION
+        console.log("About to call map.panTo with:", [lat, lon]);
+        map.panTo([lat, lon]);
+        placeMarker(lat, lon);    //place marker
+      } else{
+        console.error("invalid lat/lon coordinates.");
+      }
+    }
+    else{
+      console.error("targetResult is null.")
+    }
+  });
 
   //SEARCH WHILE TYPING
   input.addEventListener("keydown", (e) => {
@@ -71,7 +81,7 @@ export function initSearch(){
   });
 }
   /*
-  //autocomplete search
+  //autocomplete search (API uses the same endpoint)
   async function autocomplete(q) {
     console.log('autocomplete started');
     const res = await fetch(
@@ -129,5 +139,18 @@ function openSearchBar(e) {
   if (input) {
     input.focus();
     input.select();
+  }
+
+  //old results click/zoom function
+  const searchResult = document.querySelector('.result-item');
+  if (searchResult){
+    console.log("searchresult exists!");
+    searchResult.addEventListener("click", (e) => { 
+      console.log("search result clicked");
+      //PAN MAP TO LOCATION
+      map.panTo(topResult.dataset.lat, topResult.dataset.lon);
+      //place marker on attached coordinates
+      placeMarker([topResult.dataset.lat, topResult.dataset.lon])
+    });
   }
 }*/
